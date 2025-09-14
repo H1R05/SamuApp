@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Timeline Hub</title>
+        <title>SamPortfolio</title>
       </head>
       <body>{children}</body>
     </html>
