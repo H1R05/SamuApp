@@ -1,7 +1,8 @@
-// components/Welcome/WelcomeModal.tsx
 "use client";
 
 import AnimatedCharacter from "../Character/AnimatedCharacter";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 interface WelcomeModalProps {
   isOpen: boolean;
@@ -9,40 +10,50 @@ interface WelcomeModalProps {
 }
 
 export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
-  if (!isOpen) return null;
-
   return (
-    <div className="relative z-50">
-      <div
-        className="fixed inset-0 bg-black/90 backdrop-blur-md"
-        onClick={onClose}
-      />
-
-      {/* Container */}
-      <div className="fixed inset-0 flex items-center justify-center p-4">
-        <div
-          className="rounded-2xl p-8 border-2 border-purple-500/30 
-                      shadow-lg shadow-purple-500/20 
-                      bg-gradient-to-br from-slate-800 to-slate-900"
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="relative z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
-          <AnimatedCharacter />
+          <div
+            className="fixed inset-0 bg-black/90 backdrop-blur-md"
+            onClick={onClose}
+          />
 
-          <div className="text-center">
-            <div className="text-2xl font-bold text-white mb-5">
-              Benvenuto, Esploratore!
-            </div>
-            <p className="text-slate-300 mb-9">
-              Sei pronto per scoprire la mia storia
-            </p>
-            <button
-              onClick={onClose}
-              className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-medium hover:from-purple-700 hover:to-blue-800 transition-all"
+          {/* Container */}
+          <motion.div
+            className="fixed inset-0 flex items-center justify-center p-4"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 1.5, opacity: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div
+              className="rounded-2xl p-8 border-2 border-silver
+                      shadow-md shadow-silver
+                      bg-slate-950"
             >
-              Inizia l'Avventura
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+              <AnimatedCharacter />
+
+              <div className="text-center">
+                <div className="text-2xl font-bold text-silver mb-5">
+                  Benvenuto, Esploratore!
+                </div>
+                <button
+                  onClick={onClose}
+                  className="bg-gradient-to-r from-white to-yellow-200 text-black px-6 py-2 rounded-full font-medium transition-all"
+                >
+                  Entra!
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
