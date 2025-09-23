@@ -10,6 +10,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>SamPortfolio</title>
+        <link rel="icon" href="../character/favicon.ico" type="image/x-icon" />
       </head>
       <body>{children}</body>
     </html>

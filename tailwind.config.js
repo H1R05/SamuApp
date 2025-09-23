@@ -5,14 +5,16 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  plugins: [],
   theme: {
     extend: {
       colors: {
-        primary: "#ea580c", // Arancione
-        secondary: "#1f2937", // Grigio scuro
-        accent: "#fb923c", // Arancione chiaro
+        veronica: "#9c1cfd",
+        redCrayola: "#ee4266",
+        night: "#0a0f0d",
+        silver: "#c4cbca",
+        verdigris: "#3cbbb1",
       },
     },
   },
-  plugins: [],
 };

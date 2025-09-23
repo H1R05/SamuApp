@@ -1,5 +1,3 @@
-import { div } from "framer-motion/client";
-
 export default function SimpleCharacter() {
   return (
     <div className="text-center mb-8 mt-4">
