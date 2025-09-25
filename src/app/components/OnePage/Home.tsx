@@ -34,7 +34,7 @@ export default function Home() {
           </h4>
         </div>
         <div className="flex-1 ml-10 text-center font-extrabold">
-          Work in progress...
+          <p className="font-bold">Work in progress...</p>
         </div>
       </section>
     </>
