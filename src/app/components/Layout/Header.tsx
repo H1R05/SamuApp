@@ -7,8 +7,8 @@ type NavLink = { name: string; id: string };
 const navLinks: NavLink[] = [
   { name: "Home", id: "home" },
   { name: "About", id: "about" },
-  { name: "Projects", id: "projects" },
-  { name: "Contacts", id: "contacts" },
+  { name: "Portfolio", id: "portfolio" },
+  { name: "Contact", id: "contact" },
 ];
 
 export default function Header() {

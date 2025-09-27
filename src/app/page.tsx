@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import WelcomeModal from "./components/OnePage/WelcomeModal";
-import Projects from "./components/OnePage/Projects";
+import Portfolio from "./components/OnePage/Portfolio";
 import About from "./components/OnePage/About";
 import Home from "./components/OnePage/Home";
-import Contacts from "./components/OnePage/Contacts";
+import Contact from "./components/OnePage/Contact";
 
 export default function HomePage() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -21,8 +21,8 @@ export default function HomePage() {
     <>
       <Home></Home>
       <About></About>
-      <Projects></Projects>
-      <Contacts></Contacts>
+      <Portfolio></Portfolio>
+      <Contact></Contact>
       <WelcomeModal
         isOpen={isModalOpen}
         onClose={() => setisModalOpen(false)}

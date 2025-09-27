@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="h-screen flex items-center justify-center bg-white"
+        className="h-screen flex items-center justify-center bg-white "
       >
         <div className="absolute w-full bottom-0">
           <AnimatedWave></AnimatedWave>
@@ -16,8 +16,8 @@ export default function Home() {
           <p className="mb-10 text-redCrayola font-semibold">
             <Typewriter
               words={[
-                "Web Developer",
-                "Cloud Developer",
+                "Junior Cloud Devops",
+                "Studente d'Informatica",
                 "Full Stack Developer",
               ]}
               typeSpeed={80}
@@ -29,12 +29,12 @@ export default function Home() {
             />
           </p>
           <h4 className="text-xl font-bold">
-            Sono uno sviluppatore junior che sta studiando e lavorando per
-            raggiungere i propri sogni
+            Sono uno studente e sviluppatore junior, appassionato di tecnologia
+            e informatica, sempre curioso di scoprire e imparare cose nuove!
           </h4>
         </div>
-        <div className="flex-1 ml-10 text-center font-extrabold">
-          <p className="font-bold">Work in progress...</p>
+        <div className="flex-1 ml-20 text-center font-extrabold">
+          <img src="/character/characterHome.svg" alt="character" />
         </div>
       </section>
     </>

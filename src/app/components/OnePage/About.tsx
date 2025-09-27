@@ -3,13 +3,13 @@ export default function About() {
     <>
       <section
         id="about"
-        className="h-screen flex items-center justify-center bg-slate-200"
+        className="h-screen flex items-center justify-center bg-white"
       >
         <div>
-          <h1 className="text-5xl font-bold text-start">About Me</h1>
-          <h4>un pò di me</h4>
-          <p>cios</p>
-          <h4>cio</h4>
+          <h1 className="text-5xl font-bold text-center">About Me</h1>
+          <p className="font-semibold text-xl text-center">
+            Fin da piccolo sono stato appassionato di tecnologia e informatica
+          </p>
         </div>
       </section>
     </>
