@@ -29,8 +29,8 @@ export default function Home() {
             />
           </p>
           <h4 className="text-xl font-bold">
-            Sono uno studente e sviluppatore junior, appassionato di tecnologia
-            e informatica, sempre curioso di scoprire e imparare cose nuove!
+            Sono uno studente e sviluppatore junior, sempre curioso di scoprire
+            e imparare cose nuove!
           </h4>
         </div>
         <div className="flex-1 ml-20 text-center font-extrabold">
