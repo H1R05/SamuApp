@@ -1,7 +1,6 @@
 "use client";
 
 import AnimatedCharacter from "../Character/AnimatedCharacter";
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence, easeOut } from "framer-motion";
 
 interface WelcomeModalProps {
@@ -41,7 +40,7 @@ export default function WelcomeModal({ isOpen, onClose }: WelcomeModalProps) {
 
               <div className="text-center">
                 <div className="text-2xl font-bold text-silver mb-5">
-                  Benvenuto, Esploratore!
+                  Benvenuto nel mio sito!
                 </div>
                 <button
                   onClick={onClose}

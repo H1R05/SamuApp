@@ -1,5 +1,7 @@
 // src/app/layout.tsx
 import "./globals.css"; // Importa gli stili globali
+import Header from "./components/Layout/Header";
+import Footer from "./components/Layout/Footer";
 
 export default function RootLayout({
   children,
@@ -9,10 +11,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>SamPortfolio</title>
+        <title>SamuPortfolio</title>
         <link rel="icon" href="../character/favicon.ico" type="image/x-icon" />
       </head>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <Header></Header>
+        <main className="flex-1 bg-silver">{children}</main>
+        <Footer></Footer>
+      </body>
     </html>
   );
 }
