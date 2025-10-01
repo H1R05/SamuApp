@@ -1,15 +1,15 @@
 import { Typewriter } from "react-simple-typewriter";
-import AnimatedWave from "../../assets/WaveBackground";
+import AnimatedWaveHome from "../../assets/WaveBackgroundHome";
 
 export default function Home() {
   return (
     <>
       <section
         id="home"
-        className="h-screen flex items-center justify-center bg-white "
+        className="h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-slate-200"
       >
         <div className="absolute w-full bottom-0">
-          <AnimatedWave></AnimatedWave>
+          <AnimatedWaveHome></AnimatedWaveHome>
         </div>
         <div className="flex-1 ml-10 text-left text-5xl">
           <h1 className="text-6xl font-bold mb-3">Ciao, mi chiamo Samu!</h1>
