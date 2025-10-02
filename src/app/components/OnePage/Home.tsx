@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-slate-200"
+        className="h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-slate-100"
       >
         <div className="absolute w-full bottom-0">
           <AnimatedWaveHome></AnimatedWaveHome>
@@ -34,7 +34,7 @@ export default function Home() {
           </h4>
         </div>
         <div className="flex-1 ml-20 text-center font-extrabold">
-          <img src="/character/characterHome.svg" alt="character" />
+          <img src="elements/characterHome.svg" alt="character" />
         </div>
       </section>
     </>

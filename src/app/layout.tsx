@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>SamuPortfolio</title>
-        <link rel="icon" href="../character/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="../elements/favicon.ico" type="image/x-icon" />
       </head>
       <body className="flex flex-col min-h-screen">
         <Header></Header>

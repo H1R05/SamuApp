@@ -13,6 +13,23 @@ const navLinks: NavLink[] = [
 
 export default function Header() {
   const [active, setActive] = useState<String>("home");
+  const [isSidebar, setIsSidebar] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsSidebar(active !== "home");
+  });
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // scrolla senza animazione all’inizio
+    setIsMounted(true);
+  }, []);
+
+  //Posiziona lo scroll in cima ogni ricaricamento
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   //Tutto gestito dal browser tramite chiamata api
   useEffect(() => {
     const section = navLinks
@@ -40,39 +57,72 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <div className="fixed z-10 h-20 flex top-0 left-0 w-full bg-night items-center">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex py-1 flex-col md:flex-row md:items-center md:justify-between">
-          {/* Titolo e sottotitolo */}
-          <div className="">
-            <a href="">
-              <img
-                src="/character/logoSitoWeb.svg"
-                alt=""
-                className="h-40 mt-7 w-auto object-contain "
-              />
-            </a>
-          </div>
+  if (!isMounted) {
+    return null;
+  }
 
-          {/* Link di navigazione */}
-          <nav className="flex gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`} // ogni link punta alla sezione giusta
-                className={`font-medium transition-colors ${
-                  active === link.id
-                    ? "text-redCrayola" //acceso
-                    : "text-silver hover:text-redCrayola" // spento
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </div>
-    </div>
+  return (
+    <motion.div
+      initial={
+        isSidebar
+          ? { left: 20, top: 80, width: 70, borderRadius: 32 }
+          : {
+              left: "50%",
+              top: 24,
+              width: "60vw",
+              borderRadius: 28,
+              x: "-50%",
+            }
+      }
+      animate={
+        isSidebar
+          ? { left: 50, top: 80, width: 70, borderRadius: 32 }
+          : {
+              left: "50%",
+              top: 24,
+              width: "60vw",
+              borderRadius: 28,
+              x: "-50%",
+            }
+      }
+      className={`fixed shadow-xl z-50 bg-night transition-all duration-500
+      ${
+        isSidebar
+          ? "flex flex-col items-center h-[250px] border-silver border-2 justify-center"
+          : "flex flex-row items-center justify-around h-24"
+      }
+    `}
+    >
+      {!isSidebar && (
+        <img
+          src="../elements/logoSitoWeb.svg"
+          alt="Logo"
+          className="h-40 mt-7 w-auto object-contain"
+        />
+      )}
+
+      {/* Link di navigazione */}
+      <nav
+        className={
+          isSidebar
+            ? "flex flex-col gap-8 text-center text-sm"
+            : "flex flex-row gap-8"
+        }
+      >
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            className={`font-medium transition-colors ${
+              active === link.id
+                ? "text-redCrayola"
+                : "text-silver hover:text-redCrayola"
+            }`}
+          >
+            {link.name}
+          </a>
+        ))}
+      </nav>
+    </motion.div>
   );
 }
