@@ -11,10 +11,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>SamPortfolio</title>
-        <link rel="icon" href="../character/favicon.ico" type="image/x-icon" />
+        <title>SamuPortfolio</title>
+        <link rel="icon" href="../elements/favicon.ico" type="image/x-icon" />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen ">
         <Header></Header>
         <main className="flex-1 bg-silver">{children}</main>
         <Footer></Footer>

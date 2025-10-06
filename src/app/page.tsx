@@ -1,32 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import WelcomeModal from "./components/Home/WelcomeModal";
-import Projects from "./components/Home/Projects";
-import About from "./components/Home/About";
-import Home from "./components/Home/Home";
-import Contacts from "./components/Home/Contacts";
+import Portfolio from "./components/OnePage/Portfolio";
+import About from "./components/OnePage/About";
+import Home from "./components/OnePage/Home";
+import Contact from "./components/OnePage/Contact";
 
 export default function HomePage() {
-  const [isModalOpen, setisModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-  }, [isModalOpen]);
-
   return (
     <>
       <Home></Home>
       <About></About>
-      <Projects></Projects>
-      <Contacts></Contacts>
-      <WelcomeModal
-        isOpen={isModalOpen}
-        onClose={() => setisModalOpen(false)}
-      ></WelcomeModal>
+      <Portfolio></Portfolio>
+      <Contact></Contact>
     </>
   );
 }
