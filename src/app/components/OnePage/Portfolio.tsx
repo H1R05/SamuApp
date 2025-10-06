@@ -1,22 +1,35 @@
 import ProjectCard from "../UI/ProjectCard";
 import { useState } from "react";
+import TechStackTicker from "../UI/lineTechStack";
+import CertificateCard from "../UI/CertificateCard";
 
 const projects = [
   {
-    Img: "/elements/galleriaSteganografia.png",
-    title: "Prova",
-    description: "Il mio sito personale sviluppato con Next.js e Tailwind.",
-    github: "https://github.com/tuo-username/portfolio",
+    Img: "/project/galleriaSteganografia.png",
+    title: "Galleria Immagini Steganografia",
+    description:
+      "Una semplice galleria immagini con l'implementazione della steganografia ",
+    github: "https://github.com/H1R05/GalleriaIMG-Steganografia",
   },
   {
-    Img: "/elements/sitoPortfolio.png",
-    title: "prova",
-    description: "Applicazione di chat real-time con Socket.io.",
-    github: "https://github.com/tuo-username/chatapp",
+    Img: "/project/sitoPortfolio.png",
+    title: "Modern Web Portfolio",
+    description: "portfolio personale",
+    github: "https://github.com/H1R05/SamuApp",
   },
 ];
-const certificate = [];
-const techStack = [];
+const certificates = [
+  {
+    src: "/certificate/CertificatoWebDeveloper.pdf",
+    name: "Certificato Web Developer",
+    file: "/certificate/CertificatoWebDeveloper.pdf",
+  },
+  {
+    src: "/certificate/AWSCertifiedCloudPractitioner.pdf",
+    name: "Certificato AWS Cloud Practitioner",
+    file: "/certificate/AWSCertifiedCloudPractitioner.pdf",
+  },
+];
 
 export default function Projects() {
   const [activeTab, setActiveTab] = useState<
@@ -26,7 +39,7 @@ export default function Projects() {
   return (
     <>
       <section id="portfolio" className="min-h-screen bg-white px-8 py-16">
-        <div className="container text-center justify-center mx-auto max-w-5xl">
+        <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
           <h2 className="text-5xl font-bold mb-4">Portfolio</h2>
           <p className="text-lg mb-8 text-gray-600">
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
@@ -83,16 +96,15 @@ export default function Projects() {
 
             {activeTab === "certificates" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {/*{certificates.map((cert, idx) => (
+                {certificates.map((cert, idx) => (
                   <CertificateCard key={idx} {...cert} />
-               ))} */}
+                ))}
               </div>
             )}
 
             {activeTab === "stack" && (
               <div className="relative overflow-hidden py-8">
-                {/* Componente ticker o riga scrollante qui */}
-                {/* <TechStackTicker items={techStack} /> */}
+                <TechStackTicker></TechStackTicker>
               </div>
             )}
           </div>

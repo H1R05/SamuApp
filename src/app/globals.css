@@ -3,40 +3,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/*animazioni personalizzate */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-@keyframes float {
-  0%,
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
   100% {
-    transform: translateY(0px);
+    transform: translateX(0%);
   }
-  50% {
-    transform: translateY(-10px);
-  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 20s linear infinite;
 }
 
 html {
   scroll-behavior: smooth;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.scale-200 {
-  transform: scale(2);
 }

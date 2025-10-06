@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="h-screen flex items-center justify-center bg-gradient-to-r from-slate-50 to-slate-100"
+        className="h-screen flex items-center justify-center bg-white"
       >
         <div className="absolute w-full bottom-0">
           <AnimatedWaveHome></AnimatedWaveHome>
