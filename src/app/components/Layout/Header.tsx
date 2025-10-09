@@ -18,16 +18,12 @@ export default function Header() {
 
   useEffect(() => {
     setIsSidebar(active !== "home");
-  });
-
-  useEffect(() => {
-    window.scrollTo(0, 0); // scrolla senza animazione all’inizio
-    setIsMounted(true);
-  }, []);
+  }, [active]);
 
   //Posiziona lo scroll in cima ogni ricaricamento
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 0); // scrolla senza animazione all’inizio
+    setIsMounted(true);
   }, []);
 
   //Tutto gestito dal browser tramite chiamata api
