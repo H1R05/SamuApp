@@ -20,12 +20,12 @@ const projects = [
 ];
 const certificates = [
   {
-    src: "/certificate/CertificatoWebDeveloper.pdf",
+    preview: "/certificate/CertificatoWebDeveloperPreview.png",
     name: "Certificato Web Developer",
     file: "/certificate/CertificatoWebDeveloper.pdf",
   },
   {
-    src: "/certificate/AWSCertifiedCloudPractitioner.pdf",
+    preview: "/certificate/AWSCertifiedCloudPractitionerPreview.png",
     name: "Certificato AWS Cloud Practitioner",
     file: "/certificate/AWSCertifiedCloudPractitioner.pdf",
   },
@@ -38,7 +38,7 @@ export default function Projects() {
 
   return (
     <>
-      <section id="portfolio" className="min-h-screen bg-white px-8 py-16">
+      <section id="portfolio" className="min-h-screen px-8 py-16">
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
           <h2 className="text-5xl font-bold mb-4">Portfolio</h2>
           <p className="text-lg mb-8 text-gray-600">

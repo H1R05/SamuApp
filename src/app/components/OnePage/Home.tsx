@@ -1,16 +1,11 @@
 import { Typewriter } from "react-simple-typewriter";
-import AnimatedWaveHome from "../../assets/WaveBackgroundHome";
+import React from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Home() {
   return (
     <>
-      <section
-        id="home"
-        className="h-screen flex items-center justify-center bg-white"
-      >
-        <div className="absolute w-full bottom-0">
-          <AnimatedWaveHome></AnimatedWaveHome>
-        </div>
+      <section id="home" className="h-screen flex items-center justify-center">
         <div className="flex-1 ml-10 text-left text-5xl">
           <h1 className="text-6xl font-bold mb-3">Ciao, mi chiamo Samu!</h1>
           <p className="mb-10 text-redCrayola font-semibold">
@@ -33,8 +28,8 @@ export default function Home() {
             e imparare cose nuove!
           </h4>
         </div>
-        <div className="flex-1 ml-20 text-center font-extrabold">
-          <img src="elements/characterHome.svg" alt="character" />
+        <div className="flex-1 ml-20 text-center">
+          <DotLottieReact src="/elements/animateLogo.json" loop autoplay />
         </div>
       </section>
     </>

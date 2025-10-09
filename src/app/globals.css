@@ -32,3 +32,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+body,
+html {
+  background: white;
+}
