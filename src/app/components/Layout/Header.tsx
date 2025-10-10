@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import gsap from "gsap";
+import { useState, useEffect, useRef } from "react";
 
 type NavLink = { name: string; id: string };
 
@@ -16,9 +16,46 @@ export default function Header() {
   const [isSidebar, setIsSidebar] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  const headerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setIsSidebar(active !== "home");
   }, [active]);
+
+  useEffect(() => {
+    if (!headerRef.current || !isMounted) return;
+
+    const header = headerRef.current;
+
+    if (isSidebar) {
+      // Animazione → Sidebar
+      gsap.to(header, {
+        left: 25,
+        top: "50%",
+        y: "-50%", // centra verticalmente
+        x: 0, // rimuove il centramento orizzontale
+        width: 70,
+        height: 250,
+        borderRadius: 32,
+        duration: 0.5,
+        ease: "power1.out",
+      });
+    } else {
+      // Animazione → Navbar
+      gsap.to(header, {
+        left: "50%",
+        top: 24,
+        x: "-50%", // centra orizzontalmente
+        y: 0, // rimuove il centramento verticale
+        width: "60vw",
+        height: 96,
+        borderRadius: 28,
+        duration: 0.5,
+        ease: "power1.out",
+      });
+    }
+    return () => {};
+  }, [isSidebar, isMounted]);
 
   //Posiziona lo scroll in cima ogni ricaricamento
   useEffect(() => {
@@ -58,36 +95,23 @@ export default function Header() {
   }
 
   return (
-    <motion.div
-      initial={
-        isSidebar
-          ? { left: 20, top: 80, width: 70, borderRadius: 32 }
-          : {
-              left: "50%",
-              top: 24,
-              width: "60vw",
-              borderRadius: 28,
-              x: "-50%",
-            }
-      }
-      animate={
-        isSidebar
-          ? { left: 50, top: 80, width: 70, borderRadius: 32 }
-          : {
-              left: "50%",
-              top: 24,
-              width: "60vw",
-              borderRadius: 28,
-              x: "-50%",
-            }
-      }
-      className={`fixed shadow-xl z-50 bg-night transition-all duration-500
+    <div
+      ref={headerRef}
+      className={`fixed shadow-xl z-50 bg-night
       ${
         isSidebar
           ? "flex flex-col items-center h-[250px] border-silver border-2 justify-center"
           : "flex flex-row items-center justify-around h-24"
       }
     `}
+      style={{
+        left: "50%",
+        top: 24,
+        width: "60vw",
+        height: 96,
+        borderRadius: 28,
+        transform: "translateX(-50%)",
+      }}
     >
       {!isSidebar && (
         <img
@@ -119,6 +143,6 @@ export default function Header() {
           </a>
         ))}
       </nav>
-    </motion.div>
+    </div>
   );
 }
