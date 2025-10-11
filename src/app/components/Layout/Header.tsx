@@ -1,6 +1,6 @@
 "use client";
 import gsap from "gsap";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 type NavLink = { name: string; id: string };
 
@@ -13,55 +13,6 @@ const navLinks: NavLink[] = [
 
 export default function Header() {
   const [active, setActive] = useState<String>("home");
-  const [isSidebar, setIsSidebar] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  const headerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setIsSidebar(active !== "home");
-  }, [active]);
-
-  useEffect(() => {
-    if (!headerRef.current || !isMounted) return;
-
-    const header = headerRef.current;
-
-    if (isSidebar) {
-      // Animazione → Sidebar
-      gsap.to(header, {
-        left: 25,
-        top: "50%",
-        y: "-50%", // centra verticalmente
-        x: 0, // rimuove il centramento orizzontale
-        width: 70,
-        height: 250,
-        borderRadius: 32,
-        duration: 0.5,
-        ease: "power1.out",
-      });
-    } else {
-      // Animazione → Navbar
-      gsap.to(header, {
-        left: "50%",
-        top: 24,
-        x: "-50%", // centra orizzontalmente
-        y: 0, // rimuove il centramento verticale
-        width: "60vw",
-        height: 96,
-        borderRadius: 28,
-        duration: 0.5,
-        ease: "power1.out",
-      });
-    }
-    return () => {};
-  }, [isSidebar, isMounted]);
-
-  //Posiziona lo scroll in cima ogni ricaricamento
-  useEffect(() => {
-    window.scrollTo(0, 0); // scrolla senza animazione all’inizio
-    setIsMounted(true);
-  }, []);
 
   //Tutto gestito dal browser tramite chiamata api
   useEffect(() => {
@@ -90,59 +41,43 @@ export default function Header() {
     return () => observer.disconnect();
   }, []);
 
-  if (!isMounted) {
-    return null;
-  }
-
   return (
-    <div
-      ref={headerRef}
-      className={`fixed shadow-xl z-50 bg-night
-      ${
-        isSidebar
-          ? "flex flex-col items-center h-[250px] border-silver border-2 justify-center"
-          : "flex flex-row items-center justify-around h-24"
-      }
-    `}
-      style={{
-        left: "50%",
-        top: 24,
-        width: "60vw",
-        height: 96,
-        borderRadius: 28,
-        transform: "translateX(-50%)",
-      }}
-    >
-      {!isSidebar && (
+    <header>
+      <div className="fixed shadow-xl w-full z-50 bg-night flex flex-row items-center justify-between h-24">
+        {/* Logo (Posizionato a sinistra) */}
         <img
           src="../elements/logoSitoWeb.svg"
           alt="Logo"
-          className="h-40 mt-7 w-auto object-contain"
+          className="h-40 mt-7 ml-16 w-auto object-contain"
         />
-      )}
 
-      {/* Link di navigazione */}
-      <nav
-        className={
-          isSidebar
-            ? "flex flex-col gap-8 text-center text-sm"
-            : "flex flex-row gap-8"
-        }
-      >
-        {navLinks.map((link) => (
-          <a
-            key={link.id}
-            href={`#${link.id}`}
-            className={`font-medium transition-colors ${
-              active === link.id
-                ? "text-redCrayola"
-                : "text-silver hover:text-redCrayola"
-            }`}
-          >
-            {link.name}
-          </a>
-        ))}
-      </nav>
-    </div>
+        {/* 💡 PILLOLA GRANDE CENTRALE: Navigazione */}
+        <nav
+          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                      bg-gray-800/80 backdrop-blur-sm 
+                      rounded-full h-12 px-8 
+                      flex items-center space-x-6 shadow-xl"
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => setActive(link.id)} // Aggiunto onClick per evidenziazione
+              className={`text-sm font-medium transition-colors tracking-wider
+              ${
+                active === link.id
+                  ? "text-redCrayola"
+                  : "text-silver hover:text-redCrayola"
+              }`}
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Placeholder a destra per mantenere lo spazio con justify-between (opzionale) */}
+        <div className="h-40 mt-7 mr-16 w-40"></div>
+      </div>
+    </header>
   );
 }
