@@ -42,41 +42,48 @@ export default function Header() {
   }, []);
 
   return (
-    <header>
-      <div className="fixed shadow-xl w-full z-50 bg-night flex flex-row items-center justify-between h-24">
-        {/* Logo (Posizionato a sinistra) */}
-        <img
-          src="../elements/logoSitoWeb.svg"
-          alt="Logo"
-          className="h-40 mt-7 ml-16 w-auto object-contain"
-        />
-
-        {/* 💡 PILLOLA GRANDE CENTRALE: Navigazione */}
-        <nav
-          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
-                      bg-gray-800/80 backdrop-blur-sm 
-                      rounded-full h-12 px-8 
-                      flex items-center space-x-6 shadow-xl"
+    <header className="mt-4">
+      <div className="fixed w-full z-50 flex items-center justify-center h-24">
+        <div
+          className=" w-11/12 max-w-2xl h-24
+          bg-night/90 backdrop-blur-sm shadow-3xl 
+          rounded-full 
+          flex items-center justify-between px-4"
         >
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              onClick={() => setActive(link.id)} // Aggiunto onClick per evidenziazione
-              className={`text-sm font-medium transition-colors tracking-wider
+          {/* Logo (Posizionato a sinistra) */}
+          <img
+            src="../elements/logoSitoWeb.svg"
+            alt="Logo"
+            className="h-40 mt-7 ml-16 w-auto object-contain"
+          />
+
+          {/* 💡 PILLOLA GRANDE CENTRALE: Navigazione */}
+          <nav
+            className="absolute left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
+            bg-gray-600/80 backdrop-blur-sm 
+            rounded-full h-12 px-6 
+            flex items-center space-x-6 shadow-xl"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={() => setActive(link.id)}
+                className={`text-sm font-medium transition-colors tracking-wider
               ${
                 active === link.id
                   ? "text-redCrayola"
                   : "text-silver hover:text-redCrayola"
               }`}
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
 
-        {/* Placeholder a destra per mantenere lo spazio con justify-between (opzionale) */}
-        <div className="h-40 mt-7 mr-16 w-40"></div>
+          {/* Placeholder a destra per mantenere lo spazio con justify-between (opzionale) */}
+          <div className="h-40 mt-7 mr-16 w-40"></div>
+        </div>
       </div>
     </header>
   );
