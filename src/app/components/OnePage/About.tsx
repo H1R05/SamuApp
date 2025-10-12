@@ -14,7 +14,7 @@ export default function About() {
     <>
       <section
         id="about"
-        className="relative min-h-screen flex flex-col bg-night justify-center px-8 py-16"
+        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent"
       >
         <div className="container mx-auto text-center max-w-3xl">
           <h1 className="text-5xl font-bold mb-6 text-redCrayola/80">

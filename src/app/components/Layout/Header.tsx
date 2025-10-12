@@ -46,21 +46,18 @@ export default function Header() {
       <div className="fixed w-full z-50 flex items-center justify-center h-24">
         <div
           className=" w-11/12 max-w-2xl h-24
-          bg-night/90 backdrop-blur-sm shadow-3xl 
+          bg-white/10 backdrop-blur-md shadow-3xl 
           rounded-full 
           flex items-center justify-between px-4"
         >
-          {/* Logo (Posizionato a sinistra) */}
           <img
             src="../elements/logoSitoWeb.svg"
             alt="Logo"
             className="h-40 mt-7 ml-16 w-auto object-contain"
           />
-
-          {/* 💡 PILLOLA GRANDE CENTRALE: Navigazione */}
           <nav
             className="absolute left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
-            bg-gray-600/80 backdrop-blur-sm 
+            bg-gray-600/90 backdrop-blur-sm 
             rounded-full h-12 px-6 
             flex items-center space-x-6 shadow-xl"
           >
@@ -80,8 +77,6 @@ export default function Header() {
               </a>
             ))}
           </nav>
-
-          {/* Placeholder a destra per mantenere lo spazio con justify-between (opzionale) */}
           <div className="h-40 mt-7 mr-16 w-40"></div>
         </div>
       </div>

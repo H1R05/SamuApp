@@ -46,7 +46,7 @@ export default function Contact() {
     <>
       <section
         id="contact"
-        className="min-h-screen bg-night flex items-center justify-center"
+        className="min-h-screen flex items-center justify-center w-full relative z-10 bg-transparent"
       >
         <form
           onSubmit={handleSubmit}

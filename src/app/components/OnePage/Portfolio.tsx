@@ -38,7 +38,10 @@ export default function Projects() {
 
   return (
     <>
-      <section id="portfolio" className="min-h-screen px-8 py-16">
+      <section
+        id="portfolio"
+        className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
+      >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
           <h2 className="text-5xl font-bold mb-4">Portfolio</h2>
           <p className="text-lg mb-8 text-gray-600">
