@@ -14,13 +14,13 @@ export default function About() {
     <>
       <section
         id="about"
-        className="relative min-h-screen flex flex-col bg-night justify-center px-8 py-16"
+        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent"
       >
         <div className="container mx-auto text-center max-w-3xl">
           <h1 className="text-5xl font-bold mb-6 text-redCrayola/80">
             About Me
           </h1>
-          <p className="text-white/80 leading-relaxed mb-8 text-2xl">
+          <p className="text-white/80 leading-relaxed mb-8 text-2xl font-semibold">
             Da sempre sono affascinato dal mondo della tecnologia e
             dell'informatica, ma anche dal design e dall’importanza di un
             aspetto curato e piacevole. Questa passione mi ha portato a

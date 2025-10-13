@@ -12,9 +12,11 @@ const CertificateCard: React.FC<CertificateCardProps> = ({
   file,
 }) => {
   const [showPdf, setShowPdf] = useState(false);
+  const cardClasses =
+    "bg-gray-800 rounded-lg p-6 h-full transition-all duration-300 relative border border-gray-700 hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/20";
 
   return (
-    <div className="bg-gradient-to-r from-slate-50 to-slate-200 px-8 py-6 rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform">
+    <div className={cardClasses}>
       {!showPdf && (
         <img
           src={preview}

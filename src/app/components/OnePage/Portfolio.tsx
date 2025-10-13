@@ -38,41 +38,53 @@ export default function Projects() {
 
   return (
     <>
-      <section id="portfolio" className="min-h-screen px-8 py-16">
+      <section
+        id="portfolio"
+        className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
+      >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
-          <h2 className="text-5xl font-bold mb-4">Portfolio</h2>
-          <p className="text-lg mb-8 text-gray-600">
+          <h2 className="text-5xl font-bold mb-4 text-redCrayola">Portfolio</h2>
+          <p className="text-lg mb-8 text-white font-semibold">
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>
-          {/* Barra tab */}
-          <div className="flex space-x-4 mb-10 justify-center">
+          {/* Barra tab Migliorata (Accent Chiaro) */}
+          <div className="flex justify-center border-b border-gray-700 mb-10">
             <button
               onClick={() => setActiveTab("projects")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                activeTab === "projects"
-                  ? "bg-verdigris text-white"
-                  : "bg-gray-200"
-              }`}
+              className={`
+            px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
+            ${
+              activeTab === "projects"
+                ? "text-lime-400 border-b-2 border-lime-400"
+                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+            }
+        `}
             >
               Progetti
             </button>
             <button
               onClick={() => setActiveTab("certificates")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                activeTab === "certificates"
-                  ? "bg-verdigris text-white"
-                  : "bg-gray-200"
-              }`}
+              className={`
+            px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
+            ${
+              activeTab === "certificates"
+                ? "text-lime-400 border-b-2 border-lime-400"
+                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+            }
+        `}
             >
               Certificati
             </button>
             <button
               onClick={() => setActiveTab("stack")}
-              className={`px-6 py-2 rounded-lg font-semibold transition ${
-                activeTab === "stack"
-                  ? "bg-verdigris text-white"
-                  : "bg-gray-200"
-              }`}
+              className={`
+            px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
+            ${
+              activeTab === "stack"
+                ? "text-lime-400 border-b-2 border-lime-400"
+                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+            }
+        `}
             >
               Stack Tecnologico
             </button>
@@ -103,7 +115,7 @@ export default function Projects() {
             )}
 
             {activeTab === "stack" && (
-              <div className="relative overflow-hidden py-8">
+              <div className="relative overflow-hidden py-8 text-white">
                 <TechStackTicker></TechStackTicker>
               </div>
             )}

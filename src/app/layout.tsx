@@ -14,7 +14,7 @@ export default function RootLayout({
         <title>SamuPortfolio</title>
         <link rel="icon" href="../elements/favicon.ico" type="image/x-icon" />
       </head>
-      <body className="flex flex-col min-h-screen ">
+      <body className="flex flex-col min-h-screen bg-unique-pattern">
         <Header></Header>
         <main className="flex-1">{children}</main>
         <Footer></Footer>

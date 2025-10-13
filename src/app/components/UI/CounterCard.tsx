@@ -5,12 +5,18 @@ interface CounterCardProps {
 }
 
 const CounterCard = ({ number, label, Icon }: CounterCardProps) => (
-  <div className="bg-gradient-to-r cursor-default from-slate-50 to-slate-200 px-8 py-6 rounded-lg shadow-lg hover:shadow-silver hover:bg-night hover:text-verdigris hover:scale-110 transform duration-300">
-    <h2 className="text-4xl font-bold text-redCrayola">{number}</h2>
-    <p className="mt-2 bg-gradient-to-r from-slate-500 to-slate-900 bg-clip-text text-transparent font-medium">
-      {label}
-    </p>
-    <Icon className="text-5xl mx-auto" />
+  <div
+    className="
+      bg-gray-800 rounded-xl p-8 h-full text-center transition-all duration-300 relative 
+      border border-gray-700 cursor-default
+      hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/20 hover:scale-[1.02]
+    "
+  >
+    <Icon className="text-5xl mx-auto text-lime-400 mb-4" />
+
+    <h2 className="text-5xl font-extrabold text-white mb-1">{number}</h2>
+
+    <p className="mt-1 text-gray-400 font-medium">{label}</p>
   </div>
 );
 
