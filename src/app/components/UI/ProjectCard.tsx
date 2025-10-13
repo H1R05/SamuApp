@@ -7,9 +7,11 @@ interface ProjectCardProps {
   description: string;
   github: string;
 }
+const cardClasses =
+  "bg-gray-800 rounded-lg p-6 h-full transition-all duration-300 relative border border-gray-700 hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/20";
 
 const ProjectCard = ({ Img, title, description, github }: ProjectCardProps) => (
-  <div className="px-8 py-6 rounded-lg shadow-lg transform duration-300">
+  <div className={cardClasses}>
     <Image
       src={Img}
       alt={title}

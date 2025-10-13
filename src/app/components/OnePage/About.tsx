@@ -20,7 +20,7 @@ export default function About() {
           <h1 className="text-5xl font-bold mb-6 text-redCrayola/80">
             About Me
           </h1>
-          <p className="text-white/80 leading-relaxed mb-8 text-2xl">
+          <p className="text-white/80 leading-relaxed mb-8 text-2xl font-semibold">
             Da sempre sono affascinato dal mondo della tecnologia e
             dell'informatica, ma anche dal design e dall’importanza di un
             aspetto curato e piacevole. Questa passione mi ha portato a
