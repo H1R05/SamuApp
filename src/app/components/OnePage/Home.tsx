@@ -10,7 +10,7 @@ export default function Home() {
     <>
       <section
         id="home"
-        className="min-h-screen flex items-center justify-center w-full relative z-10 bg-transparent"
+        className="min-h-[85vh] flex items-center justify-center w-full relative z-10 bg-transparent"
       >
         <div className="flex-1 ml-10 text-left text-5xl">
           <h1 className="text-6xl font-bold mb-3 text-white">
@@ -36,13 +36,13 @@ export default function Home() {
             e imparare cose nuove!
           </h4>
           <div className="flex gap-6">
-            <a href="https://github.com/H1R05">
+            <a href="https://github.com/H1R05/">
               <FaGithub className="text-white mt-6 hover:scale-125 transition " />
             </a>
-            <a href="">
+            <a href="https://www.linkedin.com/in/samuele-angelicchio-639927363/">
               <CiLinkedin className="text-white mt-6 hover:scale-125 transition " />
             </a>
-            <a href="">
+            <a href="https://www.instagram.com/angelicchio_samuele/">
               <FaInstagram className="text-white mt-6 hover:scale-125 transition" />
             </a>
           </div>

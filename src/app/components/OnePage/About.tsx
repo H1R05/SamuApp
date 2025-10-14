@@ -4,7 +4,7 @@ import { FaPersonArrowUpFromLine } from "react-icons/fa6";
 import CounterCard from "../UI/CounterCard";
 
 const counters = [
-  { number: 1, label: "Progetti", Icon: GoProjectRoadmap },
+  { number: 2, label: "Progetti", Icon: GoProjectRoadmap },
   { number: 2, label: "Certificati", Icon: BiSolidCertification },
   { number: 1, label: "Anni Esperienza", Icon: FaPersonArrowUpFromLine },
 ];
@@ -16,7 +16,7 @@ export default function About() {
     <>
       <section
         id="about"
-        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent"
+        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent/30"
       >
         <div className="container mx-auto text-center max-w-3xl">
           <h1 className="text-5xl font-bold mb-6 text-redCrayola/80">

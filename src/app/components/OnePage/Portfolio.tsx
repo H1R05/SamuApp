@@ -14,7 +14,7 @@ const projects = [
   {
     Img: "/project/sitoPortfolio.png",
     title: "Modern Web Portfolio",
-    description: "portfolio personale",
+    description: "Portfolio personale moderno che mi rappresenta",
     github: "https://github.com/H1R05/SamuApp",
   },
 ];
@@ -47,7 +47,6 @@ export default function Projects() {
           <p className="text-lg mb-8 text-white font-semibold">
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>
-          {/* Barra tab Migliorata (Accent Chiaro) */}
           <div className="flex justify-center border-b border-gray-700 mb-10">
             <button
               onClick={() => setActiveTab("projects")}
