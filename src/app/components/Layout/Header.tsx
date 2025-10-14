@@ -1,6 +1,6 @@
 "use client";
 import gsap from "gsap";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 
 type NavLink = { name: string; id: string };
 
@@ -13,6 +13,25 @@ const navLinks: NavLink[] = [
 
 export default function Header() {
   const [active, setActive] = useState<String>("home");
+  const cardRef = useRef(null);
+  const logoRef = useRef(null);
+  //animazioni gsap
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { duration: 0.8, ease: "power2.out" },
+      });
+
+      tl.from(cardRef.current, {
+        y: -100,
+        opacity: 0,
+        scale: 0.5,
+        duration: 1,
+      });
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, []);
 
   //Tutto gestito dal browser tramite chiamata api
   useEffect(() => {
@@ -43,14 +62,16 @@ export default function Header() {
 
   return (
     <header className="mt-4">
-      <div className="fixed w-full z-50 flex items-center justify-center h-24">
+      <div className=" w-full z-50 flex items-center justify-center h-24 sticky">
         <div
+          ref={cardRef}
           className=" w-11/12 max-w-2xl h-24
           bg-white/10 backdrop-blur-md shadow-3xl 
           rounded-full 
           flex items-center justify-between px-4"
         >
           <img
+            ref={logoRef}
             src="../elements/logoSitoWeb.svg"
             alt="Logo"
             className="h-40 mt-7 ml-16 w-auto object-contain"
