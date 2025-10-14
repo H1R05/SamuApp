@@ -34,7 +34,7 @@ export default function TechStackTicker() {
       <div className="flex animate-marquee whitespace-nowrap">
         {techStack.concat(techStack).map((item, idx) => (
           <div key={idx} className="flex flex-col items-center mx-4">
-            <item.Icon className="h-12 w-12" />
+            <item.Icon className="h-12 w-12 hover:scale-110 transition" />
             <span className="text-sm">{item.name}</span>
           </div>
         ))}
@@ -43,7 +43,7 @@ export default function TechStackTicker() {
       <div className="flex animate-marquee-reverse whitespace-nowrap mt-8">
         {techStack.concat(techStack).map((item, idx) => (
           <div key={idx} className="flex flex-col items-center mx-4">
-            <item.Icon className="h-12 w-12" />
+            <item.Icon className="h-12 w-12 hover:scale-110 transition" />
             <span className="text-sm">{item.name}</span>
           </div>
         ))}

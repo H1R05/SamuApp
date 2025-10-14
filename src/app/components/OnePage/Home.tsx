@@ -1,6 +1,9 @@
 import { Typewriter } from "react-simple-typewriter";
 import React from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { FaGithub } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+import { FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -32,6 +35,17 @@ export default function Home() {
             Sono uno studente e sviluppatore junior, sempre curioso di scoprire
             e imparare cose nuove!
           </h4>
+          <div className="flex gap-6">
+            <a href="https://github.com/H1R05">
+              <FaGithub className="text-white mt-6 hover:scale-125 transition " />
+            </a>
+            <a href="">
+              <CiLinkedin className="text-white mt-6 hover:scale-125 transition " />
+            </a>
+            <a href="">
+              <FaInstagram className="text-white mt-6 hover:scale-125 transition" />
+            </a>
+          </div>
         </div>
         <div className="flex-1 ml-20 text-center">
           <DotLottieReact src="/elements/animateLogo.json" loop autoplay />
