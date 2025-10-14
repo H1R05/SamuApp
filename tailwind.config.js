@@ -14,6 +14,7 @@ module.exports = {
         night: "#0a0f0d",
         silver: "#c4cbca",
         verdigris: "#3cbbb1",
+        coral: "#EB9486",
       },
     },
   },

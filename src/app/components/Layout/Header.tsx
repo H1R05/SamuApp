@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import gsap from "gsap";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 
 type NavLink = { name: string; id: string };
 
@@ -13,6 +13,26 @@ const navLinks: NavLink[] = [
 
 export default function Header() {
   const [active, setActive] = useState<String>("home");
+  const cardRef = useRef(null);
+  const logoRef = useRef(null);
+  //animazioni gsap
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        defaults: { duration: 0.8, ease: "power2.out" },
+      });
+
+      tl.from(cardRef.current, {
+        y: -100,
+        opacity: 0,
+        scale: 0.5,
+        duration: 1,
+      });
+    }, cardRef);
+
+    return () => ctx.revert();
+  }, []);
+
   //Tutto gestito dal browser tramite chiamata api
   useEffect(() => {
     const section = navLinks
@@ -41,38 +61,46 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="fixed z-10 h-20 flex top-0 left-0 w-full bg-night items-center">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="flex py-1 flex-col md:flex-row md:items-center md:justify-between">
-          {/* Titolo e sottotitolo */}
-          <div className="">
-            <a href="">
-              <img
-                src="/character/logoSitoWeb.svg"
-                alt=""
-                className="h-40 mt-7 w-auto object-contain "
-              />
-            </a>
-          </div>
-
-          {/* Link di navigazione */}
-          <nav className="flex gap-8">
+    <header className="mt-4">
+      <div className=" w-full z-50 flex items-center justify-center h-24 sticky">
+        <div
+          ref={cardRef}
+          className=" w-11/12 max-w-2xl h-24
+          bg-white/10 backdrop-blur-md shadow-3xl 
+          rounded-full 
+          flex items-center justify-between px-4"
+        >
+          <img
+            ref={logoRef}
+            src="../elements/logoSitoWeb.svg"
+            alt="Logo"
+            className="h-40 mt-7 ml-16 w-auto object-contain"
+          />
+          <nav
+            className="absolute left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
+            bg-gray-600/90 backdrop-blur-sm 
+            rounded-full h-12 px-6 
+            flex items-center space-x-6 shadow-xl"
+          >
             {navLinks.map((link) => (
               <a
                 key={link.id}
-                href={`#${link.id}`} // ogni link punta alla sezione giusta
-                className={`font-medium transition-colors ${
-                  active === link.id
-                    ? "text-redCrayola" //acceso
-                    : "text-silver hover:text-redCrayola" // spento
-                }`}
+                href={`#${link.id}`}
+                onClick={() => setActive(link.id)}
+                className={`text-sm font-medium transition-colors tracking-wider
+              ${
+                active === link.id
+                  ? "text-redCrayola"
+                  : "text-silver hover:text-redCrayola"
+              }`}
               >
                 {link.name}
               </a>
             ))}
           </nav>
+          <div className="h-40 mt-7 mr-16 w-40"></div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
