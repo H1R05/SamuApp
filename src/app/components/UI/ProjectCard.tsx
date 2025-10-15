@@ -51,7 +51,6 @@ const ProjectCard = ({ Img, title, description, github }: ProjectCardProps) => (
       </p>
 
       {/* Link GitHub (pulsante stilizzato) */}
-      {/* mt-auto spinge il link in basso per un layout coerente. */}
       <a
         href={github}
         className="mt-4 inline-block bg-redCrayola py-2 px-4 rounded-md 
