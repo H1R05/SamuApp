@@ -2,6 +2,9 @@ import ProjectCard from "../UI/ProjectCard";
 import { useState } from "react";
 import TechStackTicker from "../UI/lineTechStack";
 import CertificateCard from "../UI/CertificateCard";
+import gsap from "gsap";
+import { useEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projects = [
   {
@@ -31,7 +34,23 @@ const certificates = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Projects() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    });
+  });
+
   const [activeTab, setActiveTab] = useState<
     "projects" | "certificates" | "stack"
   >("projects");
