@@ -61,8 +61,8 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="mt-4">
-      <div className=" w-full z-50 flex items-center justify-center h-24 sticky">
+    <header className="mt-4 relative">
+      <div className=" w-full z-50 flex items-center justify-center h-24 fixed">
         <div
           ref={cardRef}
           className=" w-11/12 max-w-2xl h-24
@@ -77,7 +77,7 @@ export default function Header() {
             className="h-40 mt-7 ml-16 w-auto object-contain"
           />
           <nav
-            className="absolute left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
+            className="fixed left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
             bg-gray-600/90 backdrop-blur-sm 
             rounded-full h-12 px-6 
             flex items-center space-x-6 shadow-xl"
