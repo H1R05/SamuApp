@@ -20,7 +20,7 @@ export default function Home() {
             Ciao, mi chiamo Samu!
           </h1>
           <p
-            className={`${frederickaTheGreat.className} text-5xl mb-5 bg-gradient-to-r from-fuchsia-500 via-yellow-200 to-yellow-300 inline-block text-transparent bg-clip-text font-semibold`}
+            className={`${pressStart2p.className} text-3xl mb-5 bg-gradient-to-r from-fuchsia-500 via-yellow-200 to-yellow-300 inline-block text-transparent bg-clip-text font-semibold`}
           >
             <Typewriter
               words={[
