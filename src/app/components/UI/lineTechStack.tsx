@@ -37,8 +37,8 @@ const techStack: TechStackItem[] = [
 export default function TechStackTicker() {
   return (
     <div className="relative w-full overflow-hidden">
-      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-night to-transparent z-10"></div>
-      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-night to-transparent z-10"></div>
+      <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0d0d1f] to-transparent z-10"></div>
+      <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0d0d1f] to-transparent z-10"></div>
       <div className="flex animate-marquee whitespace-nowrap">
         {techStack.concat(techStack).map((item, idx) => (
           <div key={idx} className="flex flex-col items-center mx-4">
