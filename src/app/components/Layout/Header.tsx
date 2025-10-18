@@ -1,6 +1,7 @@
 "use client";
 import gsap from "gsap";
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { spaceGrotesk } from "../style/permanentMarker";
 
 type NavLink = { name: string; id: string };
 
@@ -68,45 +69,41 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="mt-4 relative">
-      <div className=" w-full z-50 flex items-center justify-center h-24 fixed">
-        <div
-          ref={cardRef}
-          className=" w-11/12 max-w-2xl h-24
-          bg-white/10 backdrop-blur-md shadow-3xl 
+    <header className="mt-4 fixed top-0 left-0 w-full z-50 flex justify-center">
+      <div
+        ref={cardRef}
+        className=" w-[90%] max-w-2xl h-20
+          bg-white/10 backdrop-blur-md shadow-2xl 
           rounded-full 
-          flex items-center justify-between px-4"
-        >
+          flex items-center justify-between px-8 border border-white/20"
+      >
+        <div className="flex items-center space-x-2">
           <img
             ref={logoRef}
             src="../elements/logoSitoWeb.svg"
             alt="Logo"
-            className="h-40 mt-7 ml-16 w-auto object-contain"
+            className="h-32 ml-7 mt-7 w-auto object-contain"
           />
-          <nav
-            className="fixed left-1/2 top-1/2 transform -translate-x-[50px] -translate-y-1/2 
-            bg-gray-600/90 backdrop-blur-sm 
-            rounded-full h-12 px-6 
-            flex items-center space-x-6 shadow-xl"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.id}
-                href={`#${link.id}`}
-                onClick={() => setActive(link.id)}
-                className={`text-sm font-medium transition-colors tracking-wider
+        </div>
+        <nav className="flex space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={() => setActive(link.id)}
+              className={`${
+                spaceGrotesk.className
+              } text-lg uppercase tracking-widest transition-all duration-300
               ${
                 active === link.id
                   ? "text-redCrayola"
                   : "text-silver hover:text-redCrayola"
               }`}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-          <div className="h-40 mt-7 mr-16 w-40"></div>
-        </div>
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );

@@ -5,8 +5,7 @@ import { CiLinkedin } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { honk } from "../style/permanentMarker";
 import { pressStart2p } from "../style/permanentMarker";
-import { frederickaTheGreat } from "../style/permanentMarker";
-import { bungeeSpice } from "../style/permanentMarker";
+import { spaceGrotesk } from "../style/permanentMarker";
 
 export default function Home() {
   return (
@@ -37,7 +36,7 @@ export default function Home() {
             />
           </p>
           <h4
-            className={`${pressStart2p.className} text-white text-xl mt-5 font-bold text-`}
+            className={`${spaceGrotesk.className} text-white text-2xl mt-5 font-bold text-`}
           >
             Sono uno studente e sviluppatore junior, sempre curioso di scoprire
             e imparare cose nuove, benvenuti nel mio portfolio!

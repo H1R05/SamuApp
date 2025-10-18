@@ -5,6 +5,7 @@ import CertificateCard from "../UI/CertificateCard";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { honk } from "../style/permanentMarker";
 
 const projects = [
   {
@@ -62,7 +63,9 @@ export default function Projects() {
         className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
       >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
-          <h2 className="text-5xl font-bold mb-4 text-redCrayola">Portfolio</h2>
+          <h2 className={`${honk.className} text-6xl font-bold mb-4`}>
+            Portfolio
+          </h2>
           <p className="text-lg mb-8 text-white font-semibold">
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>

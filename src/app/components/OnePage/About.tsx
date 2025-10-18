@@ -3,6 +3,7 @@ import { BiSolidCertification } from "react-icons/bi";
 import { FaPersonArrowUpFromLine } from "react-icons/fa6";
 import CounterCard from "../UI/CounterCard";
 import { honk } from "../style/permanentMarker";
+import { spaceGrotesk } from "../style/permanentMarker";
 
 const counters = [
   { number: 2, label: "Progetti", Icon: GoProjectRoadmap },
@@ -23,7 +24,9 @@ export default function About() {
           <h1 className={`${honk.className} text-6xl font-bold mb-6"`}>
             About Me
           </h1>
-          <p className="text-white/80 leading-relaxed mb-8 text-2xl font-semibold">
+          <p
+            className={`${spaceGrotesk.className} text-white/80 leading-relaxed mb-8 text-2xl font-semibold`}
+          >
             Da sempre sono affascinato dal mondo della tecnologia e
             dell'informatica, ma anche dal design e dall’importanza di un
             aspetto curato e piacevole. Questa passione mi ha portato a
