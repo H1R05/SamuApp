@@ -15,6 +15,7 @@ module.exports = {
         silver: "#c4cbca",
         verdigris: "#3cbbb1",
         coral: "#EB9486",
+        yellowLight: "#fcd34d",
       },
     },
   },

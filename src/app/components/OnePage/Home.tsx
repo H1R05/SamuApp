@@ -3,9 +3,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
-import { honk } from "../style/permanentMarker";
-import { pressStart2p } from "../style/permanentMarker";
-import { spaceGrotesk } from "../style/permanentMarker";
+import { russoOne } from "../style/permanentMarker";
 
 export default function Home() {
   return (
@@ -14,12 +12,14 @@ export default function Home() {
         id="home"
         className="min-h-screen flex items-center justify-center w-full relative z-10"
       >
-        <div className="text-center text-5xl max-w-[50%]">
-          <h1 className={`${honk.className} text-white text-7xl font- mb-3`}>
+        <div className=" flex flex-col text-center  text-5xl max-w-[50%]">
+          <h1
+            className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] inline-block text-transparent bg-clip-text font-semibold text-6xl mb-3`}
+          >
             Ciao, mi chiamo Samu!
           </h1>
           <p
-            className={`${pressStart2p.className} text-3xl mb-5 bg-gradient-to-r from-fuchsia-500 via-yellow-200 to-yellow-300 inline-block text-transparent bg-clip-text font-semibold`}
+            className={`${russoOne.className} text-4xl my-5 bg-gradient-to-r from-yellow-400 to-orange-400  text-transparent bg-clip-text font-semibold`}
           >
             <Typewriter
               words={[
@@ -36,7 +36,7 @@ export default function Home() {
             />
           </p>
           <h4
-            className={`${spaceGrotesk.className} text-white text-2xl mt-5 font-bold text-`}
+            className={`${russoOne.className} text-white text-2xl mt-5 font-bold text-`}
           >
             Sono uno studente e sviluppatore junior, sempre curioso di scoprire
             e imparare cose nuove, benvenuti nel mio portfolio!
