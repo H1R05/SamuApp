@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 interface ProjectCardProps {
   Img: string;
@@ -7,55 +6,46 @@ interface ProjectCardProps {
   description: string;
   github: string;
 }
-const cardClasses =
-  "bg-gray-800 rounded-lg p-6 h-full transition-all duration-300 relative border border-gray-700 hover:border-lime-500 hover:shadow-xl hover:shadow-lime-500/20";
 
 const ProjectCard = ({ Img, title, description, github }: ProjectCardProps) => (
   <div
-    className="relative w-80 flex flex-col bg-white
-  border border-gray-200 rounded-xl overflow-hidden shadow-lg
-  group transition-all duration-300 
-  hover:border-redCrayola hover:shadow-xl hover:shadow-redCrayola/40 hover:scale-[1.02]"
+    className="relative w-80 flex flex-col 
+    bg-[#0b132b]/80 border border-yellow-300/30 rounded-2xl overflow-hidden 
+    shadow-[0_0_20px_rgba(255,215,0,0.15)]
+    transition-all duration-300 hover:scale-[1.04] 
+    hover:shadow-[0_0_25px_rgba(255,215,0,0.35)]"
   >
-    {/* 2. Pseudo-elemento per il "glow" animato sul bordo */}
-    {/* Il gradiente è qui più discreto (meno opacità) per la modalità chiara. */}
     <div
-      className="absolute inset-0 rounded-xl pointer-events-none 
-    bg-gradient-to-r from-redCrayola/70 via-transparent to-redCrayola/70
-    opacity-0 group-hover:opacity-70 
-    scale-0 group-hover:scale-105 
-    group-hover:animate-spin-slow 
-    transition-all duration-500 ease-out z-0"
+      className="absolute inset-0 pointer-events-none rounded-2xl 
+      bg-gradient-to-r from-yellow-400/20 via-transparent to-yellow-400/20 
+      opacity-0 group-hover:opacity-80 
+      transition-opacity duration-500 ease-out z-0"
     ></div>
 
-    {/* 3. Contenuto della card */}
     <div className="relative z-10 p-5 flex flex-col h-full">
-      {/* Immagine */}
-      {/* L'ombra sull'immagine aggiunge profondità. */}
       <img
         src={Img}
         alt={title}
-        className="rounded-lg mb-4 w-full h-48 object-cover shadow-md 
-   transition-transform duration-300 group-hover:scale-105"
+        className="rounded-xl mb-4 w-full h-44 object-cover shadow-md 
+        transition-transform duration-300 hover:scale-105"
       />
 
-      {/* Titolo */}
-      {/* Il colore del testo deve essere scuro per contrasto su sfondo chiaro. */}
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">{title}</h2>
+      <h2 className="text-white text-2xl font-semibold drop-shadow-[0_0_6px_#00ffff] mb-2">
+        {title}
+      </h2>
 
-      {/* Descrizione */}
-      {/* Il testo della descrizione è in grigio scuro per leggibilità. */}
-      {/* Ho rimosso il gradiente dal testo che si vedeva male su sfondo chiaro. */}
-      <p className="mt-2 text-gray-600 font-medium line-clamp-3 flex-grow">
+      <p className="mt-2 text-yellow-200/90 text-base font-medium line-clamp-3 flex-grow">
         {description}
       </p>
 
-      {/* Link GitHub (pulsante stilizzato) */}
       <a
         href={github}
-        className="mt-4 inline-block bg-redCrayola py-2 px-4 rounded-md 
-   text-white font-semibold text-center transition-all duration-200 
-   hover:bg-red-800 hover:shadow-lg hover:shadow-redCrayola/40"
+        target="_blank"
+        className="mt-5 inline-block bg-gradient-to-r from-yellow-400 to-yellow-300 
+        text-blue-900 font-bold py-2 px-4 rounded-md text-center 
+        shadow-[0_0_15px_rgba(255,215,0,0.4)]
+        hover:shadow-[0_0_25px_rgba(255,215,0,0.7)] 
+        hover:scale-105 transition-all duration-300"
       >
         Visualizza su GitHub →
       </a>

@@ -5,7 +5,7 @@ import CertificateCard from "../UI/CertificateCard";
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { honk } from "../style/permanentMarker";
+import { russoOne } from "../style/permanentMarker";
 
 const projects = [
   {
@@ -63,21 +63,25 @@ export default function Projects() {
         className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
       >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
-          <h2 className={`${honk.className} text-6xl font-bold mb-4`}>
+          <h2
+            className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] text-5xl font-bold mb-4`}
+          >
             Portfolio
           </h2>
-          <p className="text-lg mb-8 text-white font-semibold">
+          <p
+            className={`${russoOne.className} text-xl mb-8 text-white/80 font-semibold`}
+          >
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>
-          <div className="flex justify-center border-b border-gray-700 mb-10">
+          <div className="flex justify-center border-b border-gray-500 mb-10">
             <button
               onClick={() => setActiveTab("projects")}
               className={`
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "projects"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -89,8 +93,8 @@ export default function Projects() {
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "certificates"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -102,8 +106,8 @@ export default function Projects() {
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "stack"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -111,7 +115,6 @@ export default function Projects() {
             </button>
           </div>
 
-          {/* Contenuto tab */}
           <div>
             {activeTab === "projects" && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

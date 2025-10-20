@@ -2,7 +2,6 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { BiSolidCertification } from "react-icons/bi";
 import { FaPersonArrowUpFromLine } from "react-icons/fa6";
 import CounterCard from "../UI/CounterCard";
-import { honk } from "../style/permanentMarker";
 import { russoOne } from "../style/permanentMarker";
 
 const counters = [
@@ -21,7 +20,9 @@ export default function About() {
         className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent/30"
       >
         <div className="container mx-auto text-center max-w-3xl">
-          <h1 className={`${honk.className} text-6xl font-bold mb-6"`}>
+          <h1
+            className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] text-5xl font-bold mb-10`}
+          >
             About Me
           </h1>
           <p
@@ -38,7 +39,7 @@ export default function About() {
             cuore in tutto quello che faccio.
           </p>
           <a href={cv} download="CVSamu.pdf">
-            <button className="relative py-2 px-8 text-black text-base font-bold rounded-full overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-purple-500 before:to-purple-500 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
+            <button className="relative py-2 px-8 text-black text-base font-bold rounded-full overflow-hidden bg-white transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-orange before:to-orange/80 before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-full hover:before:left-0">
               Download CV
             </button>
           </a>

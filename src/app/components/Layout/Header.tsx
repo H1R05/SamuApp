@@ -54,7 +54,7 @@ export default function Header() {
         ref={cardRef}
         className="w-[85%] max-w-3xl h-20
         bg-gradient-to-r from-[#ffffff15] to-[#ffffff0f]
-        backdrop-blur-lg shadow-[0_0_20px_rgba(255,0,100,0.2)]
+        backdrop-blur-lg shadow-[0_0_20px_rgba(255,255,100,0.2)]
         rounded-full flex items-center justify-around px-6 border border-white/20"
       >
         {/* LOGO */}
