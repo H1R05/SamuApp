@@ -9,12 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        veronica: "#9c1cfd",
         redCrayola: "#ee4266",
         night: "#0a0f0d",
         silver: "#c4cbca",
-        verdigris: "#3cbbb1",
-        coral: "#EB9486",
+        yellowLight: "#fcd34d",
+        orange: "#ff6900",
       },
     },
   },

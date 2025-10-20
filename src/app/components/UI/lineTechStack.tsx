@@ -13,6 +13,7 @@ import { BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandCSharp } from "react-icons/tb";
 import { SiPnpm } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
+import { SiVitest } from "react-icons/si";
 
 type TechStackItem = { name: string; Icon: React.ElementType };
 
@@ -30,6 +31,7 @@ const techStack: TechStackItem[] = [
   { name: "C#", Icon: TbBrandCSharp },
   { name: "Pnpm", Icon: SiPnpm },
   { name: "MySql", Icon: SiMysql },
+  { name: "Vitest", Icon: SiVitest },
 ];
 
 export default function TechStackTicker() {

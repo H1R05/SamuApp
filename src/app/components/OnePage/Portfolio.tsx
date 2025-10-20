@@ -2,6 +2,10 @@ import ProjectCard from "../UI/ProjectCard";
 import { useState } from "react";
 import TechStackTicker from "../UI/lineTechStack";
 import CertificateCard from "../UI/CertificateCard";
+import gsap from "gsap";
+import { useLayoutEffect, useRef } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { russoOne } from "../style/permanentMarker";
 
 const projects = [
   {
@@ -31,7 +35,46 @@ const certificates = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Projects() {
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const paragraphRef = useRef(null);
+  const cardSectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+      tl.from(sectionRef.current, { x: 50, opacity: 0, duration: 0.7 });
+      tl.from(titleRef.current, { y: 50, opacity: 0, duration: 0.7 }, "-=0.5");
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!cardSectionRef.current) return;
+    const ctx = gsap.context(() => {
+      const card = gsap.timeline({
+        scrollTrigger: {
+          trigger: cardSectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+      card.from(cardSectionRef.current, { x: 50, opacity: 0, duration: 0.7 });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   const [activeTab, setActiveTab] = useState<
     "projects" | "certificates" | "stack"
   >("projects");
@@ -39,23 +82,35 @@ export default function Projects() {
   return (
     <>
       <section
+        ref={sectionRef}
         id="portfolio"
         className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
       >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
-          <h2 className="text-5xl font-bold mb-4 text-redCrayola">Portfolio</h2>
-          <p className="text-lg mb-8 text-white font-semibold">
+          <h2
+            ref={titleRef}
+            className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] text-5xl font-bold mb-4`}
+          >
+            Portfolio
+          </h2>
+          <p
+            ref={paragraphRef}
+            className={`${russoOne.className} text-xl mb-8 text-white/80 font-semibold`}
+          >
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>
-          <div className="flex justify-center border-b border-gray-700 mb-10">
+          <div
+            ref={cardSectionRef}
+            className="flex justify-center border-b border-gray-500 mb-10"
+          >
             <button
               onClick={() => setActiveTab("projects")}
               className={`
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "projects"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -67,8 +122,8 @@ export default function Projects() {
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "certificates"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -80,8 +135,8 @@ export default function Projects() {
             px-6 py-3 text-lg font-semibold transition-all duration-300 ease-in-out
             ${
               activeTab === "stack"
-                ? "text-lime-400 border-b-2 border-lime-400"
-                : "text-gray-400 hover:text-lime-300 border-b-2 border-transparent hover:border-lime-900"
+                ? "text-orange border-b-2 border-orange"
+                : "text-gray-400 hover:text-orange/50 border-b-2 border-transparent hover:border-orange/50"
             }
         `}
             >
@@ -89,10 +144,9 @@ export default function Projects() {
             </button>
           </div>
 
-          {/* Contenuto tab */}
           <div>
             {activeTab === "projects" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
                 {projects.map((project, idx) => (
                   <ProjectCard
                     key={idx}
@@ -106,7 +160,7 @@ export default function Projects() {
             )}
 
             {activeTab === "certificates" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
                 {certificates.map((cert, idx) => (
                   <CertificateCard key={idx} {...cert} />
                 ))}
@@ -114,7 +168,7 @@ export default function Projects() {
             )}
 
             {activeTab === "stack" && (
-              <div className="relative overflow-hidden py-8 text-white">
+              <div className="relative overflow-hidden py-8 text-white animate-fade-up">
                 <TechStackTicker></TechStackTicker>
               </div>
             )}
