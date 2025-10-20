@@ -20,9 +20,9 @@ export default function Header() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
-        defaults: { duration: 1, ease: "power3.out" },
+        defaults: { duration: 1.5, ease: "power3.out" },
       });
-      tl.from(cardRef.current, { y: -50, opacity: 0, scale: 0.95 });
+      tl.from(cardRef.current, { y: -80, opacity: 0, scale: 1 });
       tl.from(logoRef.current, { x: -50, opacity: 0, scale: 1 }, "-=0.5");
     }, cardRef);
     return () => ctx.revert();

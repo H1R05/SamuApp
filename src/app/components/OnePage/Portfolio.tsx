@@ -3,7 +3,7 @@ import { useState } from "react";
 import TechStackTicker from "../UI/lineTechStack";
 import CertificateCard from "../UI/CertificateCard";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { russoOne } from "../style/permanentMarker";
 
@@ -39,18 +39,41 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const paragraphRef = useRef(null);
+  const cardSectionRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play reverse play reverse",
         },
       });
+      tl.from(sectionRef.current, { x: 50, opacity: 0, duration: 0.7 });
+      tl.from(titleRef.current, { y: 50, opacity: 0, duration: 0.7 }, "-=0.5");
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!cardSectionRef.current) return;
+    const ctx = gsap.context(() => {
+      const card = gsap.timeline({
+        scrollTrigger: {
+          trigger: cardSectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+      card.from(cardSectionRef.current, { x: 50, opacity: 0, duration: 0.7 });
     });
-  });
+
+    return () => ctx.revert();
+  }, []);
 
   const [activeTab, setActiveTab] = useState<
     "projects" | "certificates" | "stack"
@@ -59,21 +82,27 @@ export default function Projects() {
   return (
     <>
       <section
+        ref={sectionRef}
         id="portfolio"
         className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
       >
         <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
           <h2
+            ref={titleRef}
             className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] text-5xl font-bold mb-4`}
           >
             Portfolio
           </h2>
           <p
+            ref={paragraphRef}
             className={`${russoOne.className} text-xl mb-8 text-white/80 font-semibold`}
           >
             Dai un’occhiata ai miei progetti, certificati e competenze tecniche.
           </p>
-          <div className="flex justify-center border-b border-gray-500 mb-10">
+          <div
+            ref={cardSectionRef}
+            className="flex justify-center border-b border-gray-500 mb-10"
+          >
             <button
               onClick={() => setActiveTab("projects")}
               className={`
@@ -117,7 +146,7 @@ export default function Projects() {
 
           <div>
             {activeTab === "projects" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
                 {projects.map((project, idx) => (
                   <ProjectCard
                     key={idx}
@@ -131,7 +160,7 @@ export default function Projects() {
             )}
 
             {activeTab === "certificates" && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-up">
                 {certificates.map((cert, idx) => (
                   <CertificateCard key={idx} {...cert} />
                 ))}
@@ -139,7 +168,7 @@ export default function Projects() {
             )}
 
             {activeTab === "stack" && (
-              <div className="relative overflow-hidden py-8 text-white">
+              <div className="relative overflow-hidden py-8 text-white animate-fade-up">
                 <TechStackTicker></TechStackTicker>
               </div>
             )}
