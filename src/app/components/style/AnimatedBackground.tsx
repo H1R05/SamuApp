@@ -13,7 +13,7 @@ export default function ParticleBackgroundAdvanced() {
       init={particlesInit}
       options={{
         background: {
-          color: "#0d0d1f", // sfondo scuro profondo
+          color: "#000022", // sfondo scuro profondo
         },
         particles: {
           color: {
