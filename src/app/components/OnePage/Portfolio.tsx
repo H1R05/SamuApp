@@ -49,7 +49,7 @@ export default function Projects() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
       tl.from(sectionRef.current, { x: 50, opacity: 0, duration: 0.7 });
@@ -82,11 +82,13 @@ export default function Projects() {
   return (
     <>
       <section
-        ref={sectionRef}
         id="portfolio"
-        className="min-h-screen px-8 py-16 bg-transparent w-full relative z-10"
+        className="min-h-screen px-8 py-16 w-full relative z-10"
       >
-        <div className="container text-center justify-center mx-auto max-w-5xl mt-10">
+        <div
+          ref={sectionRef}
+          className="container text-center justify-center mx-auto max-w-5xl mt-10"
+        >
           <h2
             ref={titleRef}
             className={`${russoOne.className} text-white drop-shadow-[0_0_8px_#00ffff] text-5xl font-bold mb-4`}

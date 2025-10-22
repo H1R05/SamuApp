@@ -2,6 +2,7 @@
 import gsap from "gsap";
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { russoOne } from "../style/permanentMarker";
+import { honk } from "../style/permanentMarker";
 
 type NavLink = { name: string; id: string };
 
@@ -53,20 +54,19 @@ export default function Header() {
       <div
         ref={cardRef}
         className="w-[85%] max-w-3xl h-20
-        bg-gradient-to-r from-[#ffffff15] to-[#ffffff0f]
-        backdrop-blur-lg shadow-[0_0_20px_rgba(255,255,100,0.2)]
-        rounded-full flex items-center justify-around px-6 border border-white/20"
+        bg-gradient-to-r from-slate-600/80 to-slate-700/40
+        backdrop-blur-lg shadow-[0_10px_15px_rgba(255,255,100,0.2)]
+        rounded-full flex items-center justify-around px-6 border border-white/50"
       >
-        {/* LOGO */}
-        <div ref={logoRef} className="flex items-center mt-7">
+        {/* logo */}
+        <div ref={logoRef} className="items-center">
           <img
             src="../elements/logoSitoWeb.svg"
-            alt="Logo"
-            className="h-36 w-auto object-contain"
-          />
+            className="h-40 mt-3 w-auto object-contain"
+          ></img>
         </div>
 
-        {/* NAVBAR */}
+        {/*navbar */}
         <nav className="flex space-x-6">
           {navLinks.map((link) => (
             <a
