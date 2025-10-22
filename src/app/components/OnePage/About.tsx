@@ -29,9 +29,10 @@ export default function About() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          toggleActions: "play reverse play reverse",
+          toggleActions: "play none none none",
         },
       });
+      tl.from(sectionRef.current, { y: 50, autoAlpha: 0, duration: 0.6 });
       tl.from(titleRef.current, { y: 50, autoAlpha: 0, duration: 0.6 });
       tl.from(
         paragraphRef.current,

@@ -1,11 +1,31 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import gsap, { ScrollTrigger } from "gsap/all";
+import { useLayoutEffect, useRef } from "react";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
+  const sectionRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+      tl.from(sectionRef.current, { y: 50, autoAlpha: 0, duration: 0.5 });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,6 +52,8 @@ export default function Contact() {
         setLoading(false);
         setSuccess(true);
         setForm({ name: "", email: "", message: "" });
+
+        setTimeout(() => setSuccess(false), 3000);
       })
       .catch(() => {
         setLoading(false);
@@ -41,6 +63,7 @@ export default function Contact() {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="min-h-screen flex items-center justify-center py-24 px-6 bg-transparent/30 relative z-10"
     >
@@ -51,10 +74,9 @@ export default function Contact() {
                    shadow-[0_0_25px_rgba(255,215,0,0.15)]
                    transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,215,0,0.3)]"
       >
-        {/* Glow decorativo */}
         <div
           className="absolute inset-0 rounded-3xl bg-gradient-to-r 
-                        from-yellow-400/20 via-transparent to-yellow-400/20 
+                        from-yellow-400/10 via-transparent to-yellow-400/10 
                         pointer-events-none"
         ></div>
 
@@ -62,7 +84,6 @@ export default function Contact() {
           Contattami ✉️
         </h2>
 
-        {/* Nome */}
         <div className="mb-6">
           <label className="block mb-2 text-yellow-300 font-semibold uppercase text-sm tracking-widest">
             Nome
@@ -81,7 +102,6 @@ export default function Contact() {
           />
         </div>
 
-        {/* Email */}
         <div className="mb-6">
           <label className="block mb-2 text-yellow-300 font-semibold uppercase text-sm tracking-widest">
             Email
@@ -99,8 +119,6 @@ export default function Contact() {
                        placeholder-gray-400 transition-all duration-200"
           />
         </div>
-
-        {/* Messaggio */}
         <div className="mb-8">
           <label className="block mb-2 text-yellow-300 font-semibold uppercase text-sm tracking-widest">
             Messaggio
@@ -118,30 +136,19 @@ export default function Contact() {
           />
         </div>
 
-        {/* Pulsante */}
         <button
           type="submit"
-          disabled={loading}
-          className="bg-gradient-to-r from-yellow-400 to-yellow-300 
+          disabled={loading || success}
+          className={`bg-gradient-to-r from-yellow-400 to-yellow-300 
                      text-blue-900 font-extrabold w-full py-3 rounded-xl 
                      uppercase text-lg tracking-wider shadow-[0_0_20px_rgba(255,215,0,0.4)] 
                      transition-all duration-300 
                      hover:shadow-[0_0_35px_rgba(255,215,0,0.7)] hover:scale-[1.02]
-                     disabled:opacity-50 disabled:scale-100"
+                     disabled:opacity-50 disabled:scale-100 
+                     ${success ? "bg-green-400 text-green-900" : ""}`}
         >
-          {loading ? "Invio..." : "Invia Messaggio"}
+          {loading ? "Invio..." : success ? "Inviato!☑" : "Invia Messaggio"}
         </button>
-
-        {success && (
-          <p className="mt-5 text-green-400 font-bold text-center">
-            ✅ Messaggio inviato con successo! Ti risponderò presto.
-          </p>
-        )}
-        {error && (
-          <p className="mt-5 text-red-500 font-bold text-center">
-            ❌ Errore durante l'invio. Riprova più tardi.
-          </p>
-        )}
       </form>
     </section>
   );

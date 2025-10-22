@@ -40,12 +40,12 @@ export default function Home() {
           </h1>
           <p
             ref={typeRef}
-            className={`${russoOne.className} text-4xl my-5 text-yellow-300 text-transparent bg-clip-text font-semibold`}
+            className={`${russoOne.className} text-4xl my-5 bg-gradient-to-r from-red-500 to-yellow-400 inline-block text-transparent bg-clip-text font-semibold`}
           >
             <Typewriter
               words={[
                 "Junior Cloud Devops",
-                "Studente d'Informatica",
+                "Studente di informatica",
                 "Full Stack Developer",
               ]}
               typeSpeed={80}
