@@ -5,7 +5,12 @@ import { useLayoutEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+    honeypot: "",
+  });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -37,6 +42,20 @@ export default function Contact() {
     setSuccess(false);
     setError("");
 
+    if (form.honeypot.trim() !== "") {
+      console.warn("Bot rilevato! Invio bloccato");
+      return;
+    }
+
+    if (!form.name || !form.email || !form.message) {
+      setError("Per favore compila tutti i campi.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setError("Inserisci un'email valida.");
+      return;
+    }
+
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -51,7 +70,7 @@ export default function Contact() {
       .then(() => {
         setLoading(false);
         setSuccess(true);
-        setForm({ name: "", email: "", message: "" });
+        setForm({ name: "", email: "", message: "", honeypot: "" });
 
         setTimeout(() => setSuccess(false), 3000);
       })
@@ -135,7 +154,15 @@ export default function Contact() {
                        placeholder-gray-400 transition-all duration-200 resize-none"
           />
         </div>
-
+        <input
+          type="text"
+          name="honeypot"
+          value={form.honeypot}
+          onChange={handleChange}
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+        />
         <button
           type="submit"
           disabled={loading || success}
