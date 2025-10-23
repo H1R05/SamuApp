@@ -39,14 +39,14 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_7mlqbfe",
-        "template_l4ewa5n",
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         {
           from_name: form.name,
           from_email: form.email,
           message: form.message,
         },
-        "XsD9xq3UbGRyzuYDM"
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
         setLoading(false);
