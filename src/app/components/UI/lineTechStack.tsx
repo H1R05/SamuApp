@@ -27,7 +27,7 @@ const techStack: TechStackItem[] = [
   { name: "Css", Icon: FaCss3Alt },
   { name: "Docker", Icon: FaDocker },
   { name: "Aws", Icon: FaAws },
-  { name: "Postegress", Icon: BiLogoPostgresql },
+  { name: "Postegres", Icon: BiLogoPostgresql },
   { name: "C#", Icon: TbBrandCSharp },
   { name: "Pnpm", Icon: SiPnpm },
   { name: "MySql", Icon: SiMysql },

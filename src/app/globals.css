@@ -45,6 +45,12 @@
     animation: marquee-reverse 25s linear infinite;
   }
 }
-html {
+html,
+body {
   scroll-behavior: smooth;
+  background-color: #000022;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s ease;
 }

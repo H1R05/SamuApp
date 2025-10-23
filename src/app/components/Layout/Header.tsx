@@ -2,7 +2,7 @@
 import gsap from "gsap";
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { russoOne } from "../style/permanentMarker";
-import { honk } from "../style/permanentMarker";
+import Image from "next/image";
 
 type NavLink = { name: string; id: string };
 
@@ -30,23 +30,27 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const sections = navLinks
-      .map((l) => document.getElementById(l.id))
-      .filter(Boolean) as HTMLElement[];
+    const timer = setTimeout(() => {
+      const sections = navLinks
+        .map((l) => document.getElementById(l.id))
+        .filter(Boolean) as HTMLElement[];
 
-    if (!sections.length) return;
+      if (!sections.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target.id);
-        });
-      },
-      { threshold: 0.6 }
-    );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { threshold: 0.5 }
+      );
+      sections.forEach((section) => observer.observe(section));
 
-    sections.forEach((section) => observer.observe(section));
-    return () => observer.disconnect();
+      return () => observer.disconnect();
+    }, 350);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -58,15 +62,16 @@ export default function Header() {
         backdrop-blur-lg shadow-[0_10px_15px_rgba(255,255,100,0.2)]
         rounded-full flex items-center justify-around px-6 border border-white/50"
       >
-        {/* logo */}
         <div ref={logoRef} className="items-center">
-          <img
-            src="../elements/logoSitoWeb.svg"
+          <Image
+            width={10}
+            height={10}
             className="h-40 mt-3 w-auto object-contain"
-          ></img>
+            alt={""}
+            src={"../elements/logoSitoWeb.svg"}
+          ></Image>
         </div>
 
-        {/*navbar */}
         <nav className="flex space-x-6">
           {navLinks.map((link) => (
             <a

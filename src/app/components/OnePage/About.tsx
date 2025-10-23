@@ -32,23 +32,23 @@ export default function About() {
           toggleActions: "play none none none",
         },
       });
-      tl.from(sectionRef.current, { y: 50, autoAlpha: 0, duration: 0.6 });
-      tl.from(titleRef.current, { y: 50, autoAlpha: 0, duration: 0.6 });
+      tl.from(sectionRef.current, { y: 50, autoAlpha: 0, duration: 0.5 });
+      tl.from(titleRef.current, { y: 50, autoAlpha: 0, duration: 0.5 });
       tl.from(
         paragraphRef.current,
-        { x: 50, autoAlpha: 0, duration: 0.6 },
+        { x: 50, autoAlpha: 0, duration: 0.5 },
         "-=0.5"
       );
       tl.from(
         buttonRef.current,
-        { y: 50, autoAlpha: 0, duration: 0.6 },
-        "-=0.4"
+        { y: 50, autoAlpha: 0, duration: 0.5 },
+        "-=0.5"
       );
       tl.from(cardRef.current, {
         y: 50,
         autoAlpha: 0,
         stagger: 0.25,
-        duration: 0.6,
+        duration: 0.5,
       });
     }, sectionRef);
 
@@ -74,7 +74,7 @@ export default function About() {
             className={`${russoOne.className} p text-white/80 leading-relaxed mb-8 text-2xl font-semibold`}
           >
             Da sempre sono affascinato dal mondo della tecnologia e
-            dell'informatica, ma anche dal design e dall’importanza di un
+            dell&apos;informatica, ma anche dal design e dall’importanza di un
             aspetto curato e piacevole. Questa passione mi ha portato a
             scegliere un percorso di studi che mi permette di unire competenze
             tecniche e creatività. Mi piace affrontare nuove sfide, trovare

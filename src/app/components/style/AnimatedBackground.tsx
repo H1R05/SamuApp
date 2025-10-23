@@ -3,6 +3,7 @@ import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
 export default function ParticleBackgroundAdvanced() {
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   const particlesInit = async (engine: any) => {
     await loadFull(engine);
   };
@@ -13,11 +14,11 @@ export default function ParticleBackgroundAdvanced() {
       init={particlesInit}
       options={{
         background: {
-          color: "#000022", // sfondo scuro profondo
+          color: "#000022", // background sfondo
         },
         particles: {
           color: {
-            value: ["#ff4d4d", "#4d94ff", "#4dff88", "#ff4db8", "#ffb84d"], // rosso, blu, verde acqua, rosa, arancio
+            value: ["#ff4d4d", "#4d94ff", "#4dff88", "#ff4db8", "#ffb84d"],
           },
           links: {
             enable: true,
