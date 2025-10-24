@@ -2,7 +2,7 @@
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-export default function ParticleBackgroundAdvanced() {
+/* export default function ParticleBackgroundAdvanced() {
   //eslint-disable-next-line @typescript-eslint/no-explicit-any
   const particlesInit = async (engine: any) => {
     await loadFull(engine);
@@ -77,3 +77,4 @@ export default function ParticleBackgroundAdvanced() {
     />
   );
 }
+*/
