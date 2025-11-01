@@ -18,18 +18,11 @@ export default function ParticleBackgroundAdvanced() {
         },
         particles: {
           color: {
-            value: ["#ff4d4d", "#4d94ff", "#4dff88", "#ff4db8", "#ffb84d"],
-          },
-          links: {
-            enable: true,
-            color: "#ffffff",
-            distance: 160,
-            opacity: 0.25,
-            width: 1,
+            value: ["#ffffff", "#4d94ff", "#4dff88", "#ff4db8", "#ffb84d"],
           },
           move: {
             enable: true,
-            speed: 1.2,
+            speed: 0.8,
             direction: "none",
             random: true,
             straight: false,
@@ -40,7 +33,7 @@ export default function ParticleBackgroundAdvanced() {
           number: {
             value: 120,
             density: {
-              enable: true,
+              enable: false,
               area: 800,
             },
           },
@@ -49,26 +42,24 @@ export default function ParticleBackgroundAdvanced() {
             random: { enable: true, minimumValue: 0.4 },
           },
           size: {
-            value: { min: 1, max: 4 },
+            value: { min: 0.5, max: 4 },
             random: { enable: true, minimumValue: 1 },
           },
           shape: { type: "circle" },
           // Colore dinamico
           animation: {
             enable: true,
-            speed: 20,
-            sync: false,
+            speed: 30,
+            sync: true,
           },
         },
         interactivity: {
           events: {
             onHover: { enable: true, mode: "repulse" },
-            onClick: { enable: true, mode: "push" },
             resize: true,
           },
           modes: {
-            repulse: { distance: 120, duration: 0.4 },
-            push: { quantity: 4 },
+            repulse: { distance: 100, duration: 0.4 },
           },
         },
         detectRetina: true,
