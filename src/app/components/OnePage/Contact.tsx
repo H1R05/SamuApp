@@ -84,7 +84,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="min-h-screen flex items-center justify-center py-24 px-6 bg-transparent/30 relative z-10"
+      className="min-h-screen flex items-center justify-center py-24 px-6 bg-transparent/80 relative z-10"
     >
       <form
         onSubmit={handleSubmit}
