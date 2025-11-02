@@ -48,7 +48,6 @@
 html,
 body {
   scroll-behavior: smooth;
-  background-image: url("/elements/backgroundWaves.webp");
   background-color: black;
   background-repeat: repeat;
 }
