@@ -60,7 +60,7 @@ export default function About() {
       <section
         ref={sectionRef}
         id="about"
-        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent/30"
+        className="relative min-h-screen flex flex-col justify-center px-8 py-1 bg-transparent/80"
       >
         <div className="container mx-auto text-center max-w-3xl">
           <h1

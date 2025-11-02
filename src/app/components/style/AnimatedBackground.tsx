@@ -14,7 +14,7 @@ export default function ParticleBackgroundAdvanced() {
       init={particlesInit}
       options={{
         background: {
-          color: "#000022", // background sfondo
+          color: "black", // background sfondo
         },
         particles: {
           color: {
