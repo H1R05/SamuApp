@@ -41,15 +41,19 @@ Mi ha aiutato a:
 
 ---
 
-## Obiettivi del progetto
+## Obiettivi del progetto e Step successivo
 
 - Creare un **portfolio moderno e interattivo**
 - Mostrare le mie competenze tecniche e creative
 - Dimostrare la mia crescita continua nello sviluppo web
+  
+
+Il portfolio continuerà ad evolversi: voglio integrare nuove sezioni, ottimizzare le prestazioni  
+e sperimentare con **Next.js App Router**, **animazioni 3D** e **dark mode dinamica**.  
 
 ---
 
-## 🎨 Design e prototipo
+## Design e prototipo
 
 Prima dello sviluppo ho realizzato un concept su **Figma**, utile per definire layout, colori e struttura del sito.  
 Durante lo sviluppo, alcune scelte grafiche sono state adattate per migliorare performance e leggibilità.
