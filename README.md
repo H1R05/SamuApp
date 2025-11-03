@@ -49,7 +49,7 @@ Mi ha aiutato a:
   
 
 Il portfolio continuerà ad evolversi: voglio integrare nuove sezioni, ottimizzare le prestazioni  
-e sperimentare con **Next.js App Router**, **animazioni 3D** e **dark mode dinamica**.  
+e sperimentare nuove idee...  
 
 ---
 
