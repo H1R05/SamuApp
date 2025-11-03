@@ -20,14 +20,11 @@
 
 ## La mia crescita
 
-Questo progetto è stato un lungo percorso durato quasi 3 mesi tra prove, errori e tante scoperte.  
-Mi ha aiutato a:
-- Consolidare le basi di **React** e **Next.js**
-- Capire come ottimizzare **performance e animazioni**
-- Fare attenzione ai dettagli di **design e user experience**
-- Trasformare un’idea in un **progetto reale**, online e funzionante  
+Questo progetto mi ha accompagnato per quasi 3 mesi, tra prove, errori e tante scoperte.  
+Mi ha aiutato a rafforzare le basi di **React** e **Next.js**, a migliorare la gestione di **animazioni e performance**, e a dare più attenzione ai dettagli di **design e user experience**.  
+In generale, mi ha insegnato cosa significa portare un’idea da semplice bozza a **progetto reale online**, curando ogni passaggio con pazienza e curiosità.
 
-> Ogni sezione, animazione e componente di questo portfolio è stata ideata da me.
+> Ogni parte del portfolio – dalle animazioni ai componenti – l’ho costruita e rifinita personalmente.
 
 ---
 
@@ -38,18 +35,6 @@ Mi ha aiutato a:
 - **Tailwind CSS** – per uno stile pulito e responsive  
 - **tsparticles** – per lo sfondo dinamico di particelle  
 - **Vercel** – per l’hosting e il deploy  
-
----
-
-## Obiettivi del progetto e Step successivo
-
-- Creare un **portfolio moderno e interattivo**
-- Mostrare le mie competenze tecniche e creative
-- Dimostrare la mia crescita continua nello sviluppo web
-  
-
-Il portfolio continuerà ad evolversi: voglio integrare nuove sezioni, ottimizzare le prestazioni  
-e sperimentare nuove idee...  
 
 ---
 
@@ -64,13 +49,19 @@ Durante lo sviluppo, alcune scelte grafiche sono state adattate per migliorare p
   </a>
 </p>
 
+
 ---
 
-## Ho imparato:
 
-- Come lavorare in modo **strutturato** con React e Next.js  
-- Come integrare **GSAP** e **React Three Fiber** per animazioni fluide  
-- Come mantenere un design coerente, accessibile e leggero  
+## Obiettivi del progetto e Step successivo
+
+- Creare un **portfolio moderno e interattivo**
+- Mostrare le mie competenze tecniche e creative
+- Dimostrare la mia crescita continua nello sviluppo web
+
+
+Il portfolio continuerà ad evolversi: voglio integrare nuove sezioni, ottimizzare le prestazioni  
+e sperimentare nuove idee...  
 
 ---
 
