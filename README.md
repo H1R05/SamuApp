@@ -20,12 +20,12 @@
 
 ## La mia crescita
 
-Questo progetto è stato un lungo percorso durato quasi 3 mesi e in continua evoluzione.  
-Mi ha permesso di:
+Questo progetto è stato un lungo percorso durato quasi 3 mesi tra prove, errori e tante scoperte.  
+Mi ha aiutato a:
 - Consolidare le basi di **React** e **Next.js**
 - Capire come ottimizzare **performance e animazioni**
-- Curare i dettagli di **design e user experience**
-- Trasformare un’idea in un **prodotto reale**, online e funzionante  
+- Fare attenzione ai dettagli di **design e user experience**
+- Trasformare un’idea in un **progetto reale**, online e funzionante  
 
 > Ogni sezione, animazione e componente di questo portfolio è stata ideata da me.
 
